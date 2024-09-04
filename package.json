@@ -1,5 +1,5 @@
 {
-  "name": "calcify",
+  "name": "caculify",
   "version": "1.0.0",
   "description": "A utility library for various calculators.",
   "main": "dist/index.js",
