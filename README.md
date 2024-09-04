@@ -239,7 +239,7 @@ const bmi = calculateBmi({
 
 ## 기여 / Contributing
 
-기여를 환영합니다! 버그 보고, 기능 제안, 코드 개선을 통해 프로젝트에 기여할 수 있습니다. 기여를 원하시면 GitHub 리포지토리를 포크하고 Pull Request를 제출해 주세요.
+버그 보고, 기능 제안, 코드 개선을 통해 프로젝트에 기여할 수 있습니다. 기여를 원하시면 GitHub 리포지토리를 포크하고 Pull Request를 제출해 주세요.
 
 ## 라이선스 / License
 
