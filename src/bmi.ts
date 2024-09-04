@@ -1,4 +1,4 @@
-interface BmiResult {
+export interface BmiResult {
   bmi: number; // BMI 지수
   category: string; // 비만도 결과 (저체중, 정상, 과체중, 비만)
 }

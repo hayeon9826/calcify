@@ -17,5 +17,6 @@ export default defineConfig({
       },
     },
     minify: "esbuild", // 빠른 빌드와 최소화를 위해 esbuild 사용
+    emptyOutDir: false,
   },
 });

@@ -15,8 +15,10 @@
     }
   },
   "scripts": {
+    "clean": "rm -rf dist",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run clean && npm run build:types && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
