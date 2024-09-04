@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // 컴파일 타겟 설정
+    "module": "ESNext", // 모듈 형식 설정
+    "lib": ["ES2023", "DOM"], // 사용 가능한 라이브러리
+    "moduleResolution": "node", // 모듈 해석 전략
+    "declaration": true, // 타입 선언 파일 생성
+    "declarationDir": "dist", // 타입 선언 파일 출력 디렉토리
+    "outDir": "dist", // 빌드 출력 디렉토리
+    "isolatedModules": true, // 개별 모듈로 처리
+    "strict": true, // 엄격한 타입 검사
+    "esModuleInterop": true, // ES 모듈 호환성
+    "skipLibCheck": true, // 라이브러리 체크 건너뛰기
+    "forceConsistentCasingInFileNames": true, // 파일 이름 대소문자 일관성 유지
+    "noEmit": false, // 컴파일된 파일 출력
+    "noUnusedLocals": true, // 사용되지 않는 로컬 변수 체크
+    "noUnusedParameters": true, // 사용되지 않는 파라미터 체크
+    "noFallthroughCasesInSwitch": true, // Switch 문에서 Fallthrough 방지
+    "resolveJsonModule": true, // JSON 모듈 해석
+    "types": ["node"], // Node.js 타입 사용
+    "baseUrl": ".", // 모듈 해석 기준 경로
+    "paths": {
+      "*": ["src/*"] // 경로 매핑
+    }
+  },
+  "include": ["src/**/*"], // 포함할 파일
+  "exclude": ["node_modules", "dist"] // 제외할 파일 및 폴더
+}
