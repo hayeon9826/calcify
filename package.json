@@ -1,6 +1,6 @@
 {
   "name": "calculify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A utility library for various calculators.",
   "main": "dist/index.js",
   "module": "dist/index.js",
