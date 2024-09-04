@@ -1,13 +1,13 @@
-# Caculify
+# Calculify
 
 ## English Description
 
-**Caculify** is a utility library that provides various calculation functions needed in everyday life. This library includes several useful functions such as loan calculators, savings calculators, tax calculators, and health-related calculators, helping users easily perform necessary calculations.
+**Calculify** is a utility library that provides various calculation functions needed in everyday life. This library includes several useful functions such as loan calculators, savings calculators, tax calculators, and health-related calculators, helping users easily perform necessary calculations.
 
 ## Installation
 
 ```bash
-npm install caculify
+npm install calculify
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install caculify
 Each function can be imported individually as shown below:
 
 ```javascript
-import { calculateLoanRepayment, calculateBmi } from "caculify";
+import { calculateLoanRepayment, calculateBmi } from "calculify";
 
 // Loan repayment calculation
 const loanRepayment = calculateLoanRepayment({
@@ -125,12 +125,12 @@ This project is licensed under the MIT License.
 
 ## 설명 (한국어 버전)
 
-**Caculify**는 다양한 일상 생활에서 필요한 계산 기능을 제공하는 유틸리티 라이브러리입니다. 이 라이브러리는 대출 계산기, 예금 계산기, 세금 계산기, 건강 관련 계산기 등 여러 유용한 함수를 포함하고 있어, 사용자가 쉽게 필요한 계산을 수행할 수 있도록 돕습니다.
+**Calculify**는 다양한 일상 생활에서 필요한 계산 기능을 제공하는 유틸리티 라이브러리입니다. 이 라이브러리는 대출 계산기, 예금 계산기, 세금 계산기, 건강 관련 계산기 등 여러 유용한 함수를 포함하고 있어, 사용자가 쉽게 필요한 계산을 수행할 수 있도록 돕습니다.
 
 ## 설치 / Installation
 
 ```bash
-npm install caculify
+npm install calculify
 ```
 
 ## 사용법 / Usage
@@ -140,7 +140,7 @@ npm install caculify
 You can import each function individually as shown below:
 
 ```javascript
-import { calculateLoanRepayment, calculateBmi } from "caculify";
+import { calculateLoanRepayment, calculateBmi } from "calculify";
 
 // 대출 상환금액 계산
 const loanRepayment = calculateLoanRepayment({
