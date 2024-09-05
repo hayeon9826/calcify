@@ -112,31 +112,33 @@ function calculateIncomeTax(
   dependents: number,
   childrenUnder20: number
 ): number {
-  // 기본 공제 계산 (2024년 기준 세율에 따른 단순 계산 예시)
-  const basicDeduction = 1500000; // 인당 기본 공제
-  const childDeduction = 1500000; // 자녀 공제
-  const taxableIncome =
-    annualSalary -
-    basicDeduction * dependents -
-    childDeduction * childrenUnder20;
+  // 기본 공제 및 자녀 공제 적용
+  const basicDeduction = 1500000 * dependents; // 인당 기본 공제
+  const childDeduction = 1500000 * childrenUnder20; // 자녀 공제
+  const totalDeductions = basicDeduction + childDeduction;
 
-  // 예시: 과세표준에 따른 세율 적용 (단순화된 예시)
+  // 과세표준 = 연봉 - 공제액
+  const taxableIncome = Math.max(0, annualSalary - totalDeductions);
+
+  // 소득세율표에 따른 세금 계산
   let tax = 0;
-  if (taxableIncome <= 12000000) {
+
+  if (taxableIncome <= 14000000) {
     tax = taxableIncome * 0.06;
-  } else if (taxableIncome <= 46000000) {
-    tax = 12000000 * 0.06 + (taxableIncome - 12000000) * 0.15;
+  } else if (taxableIncome <= 50000000) {
+    tax = 840000 + (taxableIncome - 14000000) * 0.15;
   } else if (taxableIncome <= 88000000) {
-    tax =
-      12000000 * 0.06 +
-      (46000000 - 12000000) * 0.15 +
-      (taxableIncome - 46000000) * 0.24;
+    tax = 6240000 + (taxableIncome - 50000000) * 0.24;
+  } else if (taxableIncome <= 150000000) {
+    tax = 15360000 + (taxableIncome - 88000000) * 0.35;
+  } else if (taxableIncome <= 300000000) {
+    tax = 37060000 + (taxableIncome - 150000000) * 0.38;
+  } else if (taxableIncome <= 500000000) {
+    tax = 94060000 + (taxableIncome - 300000000) * 0.4;
+  } else if (taxableIncome <= 1000000000) {
+    tax = 174060000 + (taxableIncome - 500000000) * 0.42;
   } else {
-    tax =
-      12000000 * 0.06 +
-      (46000000 - 12000000) * 0.15 +
-      (88000000 - 46000000) * 0.24 +
-      (taxableIncome - 88000000) * 0.35;
+    tax = 384060000 + (taxableIncome - 1000000000) * 0.45;
   }
 
   return Math.max(0, tax); // 음수 방지를 위해 0 이상으로
