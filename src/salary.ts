@@ -1,7 +1,7 @@
 interface SalaryInput {
   salaryType: "연봉" | "월급"; // 급여 기준
   includeRetirement: "별도" | "포함"; // 퇴직금 포함 여부
-  annualSalary: number; // 연봉 (원)
+  salary: number; // 연봉 (원)
   dependents?: number; // 본인 포함 부양 가족 수 (선택)
   childrenUnder20?: number; // 20세 이하 자녀 수 (선택)
   nonTaxableAmount?: number; // 비과세액 (선택)
@@ -31,12 +31,13 @@ export function calculateNetSalary(input: SalaryInput): SalaryOutput {
   const {
     salaryType,
     includeRetirement,
-    annualSalary,
+    salary,
     dependents = 1,
     childrenUnder20 = 0,
     nonTaxableAmount = 0,
   } = input;
-
+  const isAnnual = salaryType === "연봉";
+  const annualSalary = isAnnual ? salary : salary * 12;
   // 2024년 기준 공제율 설정
   const pensionRate = 0.045; // 국민연금 4.5%
   const healthInsuranceRate = 0.03545; // 건강보험 3.545%
@@ -48,8 +49,9 @@ export function calculateNetSalary(input: SalaryInput): SalaryOutput {
     includeRetirement === "포함" ? (annualSalary / 13) * 12 : annualSalary;
 
   // 월급 계산
-  const monthlySalary =
-    salaryType === "연봉" ? adjustedAnnualSalary / 12 : adjustedAnnualSalary;
+  const monthlySalary = isAnnual
+    ? adjustedAnnualSalary / 12
+    : adjustedAnnualSalary;
 
   // 비과세 적용 월급
   const taxableSalary = monthlySalary - nonTaxableAmount;
@@ -141,5 +143,5 @@ function calculateIncomeTax(
     tax = 384060000 + (taxableIncome - 1000000000) * 0.45;
   }
 
-  return Math.max(0, tax); // 음수 방지를 위해 0 이상으로
+  return Math.max(0, tax) / 12; // 음수 방지를 위해 0 이상으로
 }
